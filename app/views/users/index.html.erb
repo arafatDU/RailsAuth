@@ -1,0 +1,33 @@
+
+<form method="post" action="/users/bulk_update">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <button type="submit" name="commit" value="block" class="btn btn-primary">Block</button>
+  <button type="submit" name="commit" value="unblock" class="btn btn-primary">Unblock</button>
+  <button type="submit" name="commit" value="delete" class="btn btn-danger">Delete</button>
+
+  <br>
+  <br>
+  <table class="table table-bordered">
+    <thead class="table-secondary">
+      <tr>
+        <th><input type="checkbox" disabled></th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Last Login</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each_with_index do |user, index| %>
+        <tr class="<%= index.even? ? 'table-light' : 'table-secondary' %>">
+          <td><%= check_box_tag 'user_ids[]', user.id %></td>
+          <td><strong><%= user.name %></strong><br><small><%= user.position %></small></td>
+          <td><%= user.email %></td>
+          <td><%= user.last_sign_in_at %></td>
+          <td><%= user.status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</form>

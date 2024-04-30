@@ -1,2 +1,32 @@
-<h1>Hi, I am Arafat</h1>
-<p>Software Development Intern at Itransition</p>
+<% if user_signed_in? %>
+  <div class="navbar-nav ml-auto">
+            <span class="navbar-text">
+              Hi, <%= link_to "#{current_user.name}", edit_user_registration_path(current_user) %>
+            </span>
+  </div>
+
+
+  <%= link_to 'Profile', edit_user_registration_path, class:"nav-link" %>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+
+
+<% else %>
+
+<div class="container">
+  <h1>Hi, I am Arafat</h1>
+  <p>Software Development Intern at Itransition</p>
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <%= link_to "Log in", new_user_session_path, class:"btn btn-sm btn-primary" %>
+      <%= link_to "Sign up", new_user_registration_path, class:"btn btn-sm btn-primary" %>
+    </div>
+  </div>
+
+
+<% end %>
+
+
+
+
+</div>

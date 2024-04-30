@@ -12,7 +12,12 @@
   </head>
 
   <body>
+    <%= render 'home/header' %>
     <div class="container">
+    <% if notice || alert %>
+        <%= render 'layouts/alerts' %>
+    <% end %>
+    <br>
     <%= yield %>
     </div>
 
