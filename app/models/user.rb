@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def set_default_status
     self.status ||= 'active'
   end
+
+  def blocked?
+    status == 'blocked'
+  end
 end

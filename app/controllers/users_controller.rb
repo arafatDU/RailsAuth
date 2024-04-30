@@ -16,6 +16,6 @@ class UsersController < ApplicationController
         User.where(id: params[:user_ids]).destroy_all
       end
     end
-    redirect_to users_path
+    redirect_to users_path, notice: 'Users updated.'
   end
 end

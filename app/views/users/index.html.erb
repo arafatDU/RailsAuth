@@ -24,7 +24,7 @@
           <td><%= check_box_tag 'user_ids[]', user.id %></td>
           <td><strong><%= user.name %></strong><br><small><%= user.position %></small></td>
           <td><%= user.email %></td>
-          <td><%= user.last_sign_in_at %></td>
+          <td><%= user.last_sign_in_at.strftime('%H:%M:%S, %d %b, %Y') if user.last_sign_in_at %></td>
           <td><%= user.status %></td>
         </tr>
       <% end %>
