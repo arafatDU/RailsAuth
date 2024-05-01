@@ -1,16 +1,21 @@
-<% if user_signed_in? %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <div class="navbar-nav ml-auto">
+    <div class="navbar-nav mr-auto">
       <span class="navbar-text">
-        Hello, <%= link_to "#{current_user.name}", edit_user_registration_path(current_user) %>
+        <%= link_to "RailsAuth", root_path, class: "navbar-brand display-4 font-weight-bold" %>
       </span>
     </div>
-    <div class="navbar-nav ml-2">
-      <span class="navbar-text">
-        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
-      </span>
-    </div>
+    <% if user_signed_in? %>
+      <div class="navbar-nav ml-auto">
+        <span class="navbar-text">
+          Hello, <%= link_to "#{current_user.name}", edit_user_registration_path(current_user) %>
+        </span>
+      </div>
+      <div class="navbar-nav ml-2">
+        <span class="navbar-text">
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
+        </span>
+      </div>
+    <% end %>
   </div>
 </nav>
-<% end %>

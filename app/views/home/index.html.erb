@@ -1,32 +1,35 @@
 <% if user_signed_in? %>
-  <div class="navbar-nav ml-auto">
-            <span class="navbar-text">
-              Hi, <%= link_to "#{current_user.name}", edit_user_registration_path(current_user) %>
-            </span>
+
+  <div class="container text-center mt-5">
+    <h2>Welcome, <%= current_user.name %>!</h2> <br>
+    <%= link_to 'Go To Users Panel', '/users', class: "btn btn- btn-primary shadow" %>
   </div>
-
-
-  <%= link_to 'Profile', edit_user_registration_path, class:"nav-link" %>
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-
 
 <% else %>
 
-<div class="container">
-  <h1>Hi, I am Arafat</h1>
-  <p>Software Development Intern at Itransition</p>
-
+<div class="container mt-5">
   <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <%= link_to "Log in", new_user_session_path, class:"btn btn-sm btn-primary" %>
-      <%= link_to "Sign up", new_user_registration_path, class:"btn btn-sm btn-primary" %>
+    <div class="col-md-12">
+      <h2 class="text-center">Welcome to RailsAuth</h2>
+      <p class="text-center">Please log in or sign up to continue</p>
     </div>
   </div>
+
+  <div class="row mt-5 justify-content-center">
+    <div class="col-auto pr-1">
+      <%= link_to "Log in", new_user_session_path, class:"btn btn-primary" %>
+    </div>
+    <div class="col-auto px-1">
+      <div style="border-left: 2px solid black; height: 40px;"></div>
+    </div>
+    <div class="col-auto pl-1">
+      <%= link_to "Sign up", new_user_registration_path, class:"btn btn-primary" %>
+    </div>
+  </div>
+</div>
 
 
 <% end %>
 
 
 
-
-</div>
